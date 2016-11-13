@@ -8,7 +8,7 @@
 
 	if(isset($_SESSION['user']))
 	{
-    	header("Location: submit-code.php");
+    	header("Location: index.php");
     	exit;
 	}
 

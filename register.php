@@ -1,6 +1,5 @@
 <?php 
     session_start();
- //   ini_set('display_errors', 'On');
     $dbhost = "localhost";
     $dbuser = "agdhruv";
     $dbpass = "haha";
@@ -9,7 +8,7 @@
     $unsuccessfulRegis="";
     if(isset($_SESSION['user']))
     {
-        header("Location: submit-code.php");
+        header("Location: index.php");
         exit;
     }
 
