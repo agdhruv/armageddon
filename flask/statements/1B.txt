@@ -1,0 +1,23 @@
+John is playing baseball, and he's very good at it. In fact, he was so good at the game yesterday that the pitcher decided to threaten him. The pitcher gives John a string s, and challenges John to find out the Rvalue of the string, otherwise John is in for a bad time.
+
+The Rvalue of a string s is defined as the sum of the ascii values of all the characters of the string s.
+
+Input:
+
+The first line contains the number of test cases t. The next t lines each contain a string s.
+
+Output :
+
+t lines  -> The ith line should contain the Rvalue of the ith string. 
+
+Constraints : 1<= t <= 100, |s| <= 10000
+
+Sample Input :
+
+1
+a
+
+Sample Output :
+
+97
+

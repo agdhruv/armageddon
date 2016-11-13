@@ -50,6 +50,7 @@
 	<title>Sumbit</title>
 </head>
 <body>
+    <a href="flask/statements/">List of problems</a>
 	<form method="POST" action="submit-code.php">
 		Problem ID = <input type="text" name="problemID">
 		Your code: <textarea name="submittedCode" cols="30" rows="10"></textarea><br>

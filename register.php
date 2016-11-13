@@ -1,11 +1,12 @@
 <?php 
     session_start();
+ //   ini_set('display_errors', 'On');
     $dbhost = "localhost";
     $dbuser = "agdhruv";
     $dbpass = "haha";
     $dbname = "onlineJudge";
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
+    $unsuccessfulRegis="";
     if(isset($_SESSION['user']))
     {
         header("Location: submit-code.php");
@@ -15,9 +16,10 @@
     function usernameExists($unm)
     {
         $query = "SELECT * FROM users WHERE UID='{$unm}'";
+        global $conn;
         $result = mysqli_query($conn,$query);
         $data = mysqli_fetch_assoc($result);
-        if(empty($data)){
+        if(!empty($data)){
             return true;
         }
         return false;
@@ -61,6 +63,7 @@
 	</form>
 	<p><?php echo htmlentities($unsuccessfulRegis); ?></p>
 </body>
+<a href="login.php">Return to Login</a>
 <?php
 	mysqli_close($conn);
 ?>
