@@ -2,22 +2,16 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3307
--- Generation Time: Nov 13, 2016 at 11:02 AM
--- Server version: 5.6.34
--- PHP Version: 5.6.27
+-- Host: localhost:8889
+-- Generation Time: Nov 13, 2016 at 11:39 PM
+-- Server version: 5.6.33
+-- PHP Version: 7.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `onlinejudge`
+-- Database: `onlineJudge`
 --
 
 -- --------------------------------------------------------
@@ -57,25 +51,7 @@ CREATE TABLE `submissions` (
 --
 
 INSERT INTO `submissions` (`SID`, `PID`, `UID`, `verdict`) VALUES
-('agdhruv0', '1A', 'agdhruv', 'CE'),
-('barun5111', '1A', 'barun511', 'CE'),
-('barun51110', '1A', 'barun511', 'AC'),
-('barun51111', '1A', 'barun511', 'WA'),
-('barun51112', '1A', 'barun511', 'CE'),
-('barun51113', '1A', 'barun511', 'TLE'),
-('barun51114', '1A', 'barun511', 'TLE'),
-('barun51115', '1A', 'barun511', 'AC'),
-('barun51116', '1A', 'barun511', 'WA'),
-('barun51117', '1A', 'barun511', 'CE'),
-('barun51118', '1A', 'barun511', 'TLE'),
-('barun5112', '1A', 'barun511', 'CE'),
-('barun5113', '1A', 'barun511', 'AC'),
-('barun5114', '1A', 'barun511', ''),
-('barun5115', '1A', 'barun511', ''),
-('barun5116', '1A', 'barun511', 'CE'),
-('barun5117', '1A', 'barun511', 'WA'),
-('barun5118', '1A', 'barun511', 'AC'),
-('barun5119', '1A', 'barun511', 'AC');
+('agdhruv0', '1A', 'agdhruv', 'CE');
 
 -- --------------------------------------------------------
 
@@ -87,8 +63,8 @@ CREATE TABLE `users` (
   `UID` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Password field',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Name',
-  `score` int(255) DEFAULT NULL,
-  `accuracy` decimal(65,0) DEFAULT NULL
+  `score` int(255) UNSIGNED NOT NULL,
+  `accuracy` decimal(65,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -96,8 +72,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UID`, `password`, `name`, `score`, `accuracy`) VALUES
-('ASD', 'asd', 'barun511', 0, '0'),
-('barun511', 'qwerty', 'Barun Parruck', 0, '0');
+('agdhruv', 'xyz', 'Dhruv Agarwal', 1, '50'),
+('barun511', 'qwerty', 'Barun Parruck', 0, '0'),
+('thor', '12345', 'admin', 4294967295, '100');
 
 --
 -- Indexes for dumped tables
@@ -114,7 +91,3 @@ ALTER TABLE `submissions`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UID`(32));
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
