@@ -1,23 +1,31 @@
-John is playing baseball, and he's very good at it. In fact, he was so good at the game yesterday that the pitcher decided to threaten him. The pitcher gives John a string s, and challenges John to find out the Rvalue of the string, otherwise John is in for a bad time.
-
-The Rvalue of a string s is defined as the sum of the ascii values of all the characters of the string s.
+John is playing baseball, and he's very good at it. In fact, he was so good at the game yesterday that the pitcher decided to threaten him. The pitcher gives John a number n, and challenges John to find all the prime factors of such a number n. John has always been terrible at math, so its your job to find out 
 
 Input:
 
-The first line contains the number of test cases t. The next t lines each contain a string s.
+The first line contains the number of test cases t. The next t lines each contain a number n
 
 Output :
 
-t lines  -> The ith line should contain the Rvalue of the ith string. 
+Do the following t times:
+	First output a number k
+	Then output k numbers seperated by spaces, the prime factors of that test case, such that the multiple of all of these numbers is equal to the answer. These numbers should be in ascending order.
 
-Constraints : 1<= t <= 100, |s| <= 10000
+In total, 2t lines should be present.
+
+Constraints: 1 <= t <= 1000 | 1 <= n <= 10^6
 
 Sample Input :
 
-1
-a
+3
+3
+6
+12
 
 Sample Output :
 
-97
-
+2
+1 3
+3
+1 2 3
+4
+1 2 2 3
