@@ -57,7 +57,8 @@
 		<input type="submit" name="submit" required>
 	</form>
     <a href="flask/statements/">List of problems</a><br>
-	<a href="logout.php">Logout</a>
+	<a href="logout.php">Logout</a><br>
+    <?php echo "The code received a verdict of : ".$output; ?>
 </body>
 <?php
 	mysqli_close($conn);
