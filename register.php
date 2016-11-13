@@ -17,10 +17,10 @@
         $query = "SELECT * FROM users WHERE UID='{$unm}'";
         $result = mysqli_query($conn,$query);
         $data = mysqli_fetch_assoc($result);
-        if(empty($playerlist)){
-            return false;
+        if(empty($data)){
+            return true;
         }
-        return true;
+        return false;
     }
 
     if(isset($_POST['submit'])){

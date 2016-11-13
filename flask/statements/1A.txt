@@ -1,0 +1,29 @@
+Given two numbers, a and b, write a program that will output the answer when these two numbers are multiplied together.
+
+Input: 
+
+The 1st line contains a number t, which is the number of test cases. 
+
+t lines follow, each line containing two numbers a b, seperated by a space.
+
+Output:
+
+t lines, the i'th of which is the answer (a multiplied by b), to the i'th test case.
+
+Constraints:
+
+1<= t <=10
+1<= a,b <= 10^6
+
+Sample Input:
+
+3
+1 2
+4 5
+9 20
+
+Sample Output:
+
+2
+20
+180
