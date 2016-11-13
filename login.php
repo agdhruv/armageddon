@@ -42,11 +42,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
+	<link rel="stylesheet" href="css/common.css">
 </head>
 <body>
 	<form method="POST" action="login.php">
-		User ID: <input type="text" placeholder="Unique User ID" name="userID"><br>
-		Password: <input type="password" name="password"><br>
+		User ID: <input type="text" placeholder="Unique User ID" name="userID" autocomplete="off"><br>
+		Password: <input type="password" name="password" autocomplete="off" placeholder="*****"><br>
 		<input type="submit" name="submit">
 	</form>
 	<p><?php echo htmlentities($loginSuccess); ?></p>

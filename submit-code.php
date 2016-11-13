@@ -48,14 +48,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sumbit</title>
+    <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
-    <a href="flask/statements/">List of problems</a>
 	<form method="POST" action="submit-code.php">
-		Problem ID = <input type="text" name="problemID">
-		Your code: <textarea name="submittedCode" cols="30" rows="10"></textarea><br>
+		Problem ID: <input type="text" name="problemID" autocomplete="off"><br>
+		Your code: <textarea name="submittedCode" cols="30" rows="10" autocomplete="off"></textarea><br>
 		<input type="submit" name="submit" required>
 	</form>
+    <a href="flask/statements/">List of problems</a><br>
 	<a href="logout.php">Logout</a>
 </body>
 <?php
