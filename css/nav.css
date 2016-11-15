@@ -1,0 +1,54 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background: white;
+}
+
+nav{
+	position: relative;
+	background: #e64328;
+	display: flex;
+}
+
+nav h1.title{
+	flex: 1;
+	flex-basis: 40%;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 45px;
+	color: white;
+	//background: blue;
+	box-sizing: border-box;
+	padding: 1% 0 1% 1%;
+}
+
+nav .links{
+	flex: 1;
+	flex-basis: 60%;
+	//background: yellow;
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: stretch;
+	box-sizing: border-box;
+}
+
+nav .links a{
+	font-family: 'Helvetica', sans-serif;
+	font-size: 20px;
+	//background: green;
+	text-decoration: none;
+	color: white;
+	padding: 1% 3% 1% 3%;
+	transition: all 0.4s linear;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav .links a:hover{
+	background: #e85a42;
+}
