@@ -48,16 +48,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sumbit</title>
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/loginregister.css">
 </head>
 <body>
-	<form method="POST" action="submit-code.php">
-		Problem ID: <input type="text" name="problemID" autocomplete="off"><br>
-		Your code: <textarea name="submittedCode" cols="30" rows="10" autocomplete="off"></textarea><br>
-		<input type="submit" name="submit" required>
-	</form>
-    <a href="flask/statements/">List of problems</a><br>
-	<a href="logout.php">Logout</a><br>
+    <nav>
+        <h1 class="title">
+            Thor
+        </h1>
+        <div class="links">
+            <a href="index.php">Home</a>
+            <a href="flask/statements/" target="_blank">Problems</a>
+            <?php
+                if(isset($_SESSION["user"])){
+                    echo '<a href="javascript:void(0);"><span>'.$_SESSION["user"].'</span></a>';
+                    echo '<a href="logout.php"><span>Logout</span></a>';
+                }
+            ?>
+        </div>
+    </nav>
+    <section class="section1">
+    	<form method="POST" action="submit-code.php">
+    		Problem ID: <input type="text" name="problemID" autocomplete="off"><br>
+    		Your code: <textarea name="submittedCode" cols="30" rows="10" autocomplete="off"></textarea><br>
+    		<input type="submit" name="submit" required>
+    	</form>
+    </section>
     <?php echo "The code received a verdict of : ".$output; ?>
 </body>
 <?php

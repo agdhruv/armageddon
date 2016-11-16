@@ -21,10 +21,11 @@
 			Thor
 		</h1>
 		<div class="links">
+			<a href="flask/statements/">Problems</a>
 			<?php 
 				if(isset($_SESSION["user"])){
-					echo '<a href="javascript:void(0);">'.$_SESSION["user"].'</a>';
 					echo '<a href="submit-code.php"><span>Submit Code</span></a>';
+					echo '<a href="javascript:void(0);"><span>'.$_SESSION["user"].'</span></a>';
 					echo '<a href="logout.php"><span>Logout</span></a>';
 				}
 				else{
