@@ -34,7 +34,7 @@
             Thor
         </h1>
         <div class="links">
-            <a href="Login.php">Login</a>
+            <a href="login.php">Login</a>
         </div>
     </nav>
     <section class="section1">
