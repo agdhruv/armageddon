@@ -7,7 +7,7 @@
         exit();
     }
     
-	$dbhost = "localhost";
+	/*$dbhost = "localhost";
     $dbuser = "agdhruv";
     $dbpass = "haha";
     $dbname = "onlineJudge";
@@ -41,7 +41,7 @@
 
      	$query = "INSERT into submissions VALUES ('{$sub_id}','{$problemID}','{$_SESSION["user"]}','{$output}')";
      	mysqli_query($conn,$query);
-	}
+	}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +50,7 @@
 	<title>Sumbit</title>
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/loginregister.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
@@ -68,13 +69,26 @@
         </div>
     </nav>
     <section class="section1">
-    	<form method="POST" action="submit-code.php">
-    		Problem ID: <input type="text" name="problemID" autocomplete="off"><br>
-    		Your code: <textarea name="submittedCode" cols="30" rows="10" autocomplete="off"></textarea><br>
+        <h1>Submit Code</h1>
+    	<form action="#">
+    		Problem ID<br><input type="text" name="problemID" autocomplete="off"><br>
+    		Your code<br>
+            <textarea name="submittedCode" cols="30" rows="10" autocomplete="off"></textarea><br>
     		<input type="submit" name="submit" required>
     	</form>
     </section>
-    <?php echo "The code received a verdict of : ".$output; ?>
+    <?php //echo "The code received a verdict of : ".$output; ?>
+    <script>
+        $("form").on("submit",function(e){
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.post("result.php",data,function(response){
+                if(response){
+                    console.log(response);
+                }
+            });
+        });
+    </script>
 </body>
 <?php
 	mysqli_close($conn);
