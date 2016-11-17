@@ -30,15 +30,16 @@ form label{
 form input[type="text"]{
 	font-size: 18px;
 	font-family: 'Helvetica', sans-serif;
-	margin: 1% 0 2% 0;
 	padding: 0.5%;
 	outline: 0;
 	border: 1px solid #b3b3b3;
-	//transition: box-shadow 0.2s linear;
 }
 
-form input[type="text"]:focus{
-	//box-shadow: 1px 1px 5px #bfbfbf;
+form select{
+	font-size: 18px;
+	font-family: 'Helvetica', sans-serif;
+	width: 20%;
+	outline: 0;
 }
 
 form input[type="submit"]{
@@ -49,11 +50,6 @@ form input[type="submit"]{
 	margin: 2%;
 	border: 2px solid black;
 	outline: 0;
-	transition: box-shadow 0.2s linear;
-}
-
-form input[type="submit"]:hover{
-	box-shadow: 2px 2px 5px #bfbfbf;
 }
 
 form input[type="submit"]:hover{
@@ -66,7 +62,53 @@ p.result{
 	font-family: 'Helvetica', sans-serif;
 }
 
+.inputs-container{
+	width: 80vw;
+	margin: 0px auto;
+	display: flex;
+	flex-wrap: wrap;
+}
 
+.problemID{
+	flex: 1;
+	flex-basis: 50%;
+	box-sizing: border-box;
+	//background: green;
+	padding: 1%;
+}
 
+.language{
+	flex: 1;
+	flex-basis: 50%;
+	box-sizing: border-box;
+	//background: blue;
+	padding: 1%;
+}
 
+.ace-code{
+	flex: 1;
+	flex-basis: 100%;
+	box-sizing: border-box;
+	//background: red;
+	position: relative;
+	padding: 1%;
+	min-height: 500px;
+}
 
+.submitButton{
+	flex: 1;
+	flex-basis: 100%;
+	box-sizing: border-box;
+	//background: blue;
+	padding: 1%;
+	text-align: center;
+}
+
+#editor{ 
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #5b5b5b;
+}

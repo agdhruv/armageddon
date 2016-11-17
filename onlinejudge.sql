@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 13, 2016 at 11:39 PM
+-- Generation Time: Nov 17, 2016 at 10:46 PM
 -- Server version: 5.6.33
 -- PHP Version: 7.0.12
 
@@ -43,15 +43,24 @@ CREATE TABLE `submissions` (
   `SID` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `PID` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `UID` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `verdict` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `verdict` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `language` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `submissions`
 --
 
-INSERT INTO `submissions` (`SID`, `PID`, `UID`, `verdict`) VALUES
-('agdhruv0', '1A', 'agdhruv', 'CE');
+INSERT INTO `submissions` (`SID`, `PID`, `UID`, `verdict`, `language`) VALUES
+('1', '1A', '', '', NULL),
+('2', '1A', '', '', NULL),
+('agdhruv0', '1A', 'agdhruv', 'CE', NULL),
+('agdhruv3', 'adf', 'agdhruv', '', NULL),
+('agdhruv4', '', 'agdhruv', '', NULL),
+('agdhruv5', '', 'agdhruv', '', NULL),
+('agdhruv6', 'kkkbkbk', 'agdhruv', '', NULL),
+('agdhruv7', '', 'agdhruv', '', NULL),
+('agdhruv8', '', 'agdhruv', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -74,7 +83,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`UID`, `password`, `name`, `score`, `accuracy`) VALUES
 ('agdhruv', 'xyz', 'Dhruv Agarwal', 1, '50'),
 ('barun511', 'qwerty', 'Barun Parruck', 0, '0'),
-('thor', '12345', 'admin', 4294967295, '100');
+('pravi', 'haha', 'Piyush Ravi', 0, '0'),
+('thor', '12345', 'admin', 4294967295, '100'),
+('vreddy', 'haha', 'Vineet Reddy', 2, '0');
 
 --
 -- Indexes for dumped tables

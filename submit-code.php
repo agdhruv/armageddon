@@ -6,51 +6,17 @@
         header("Location: login.php"); 
         exit();
     }
-    
-	/*$dbhost = "localhost";
-    $dbuser = "agdhruv";
-    $dbpass = "haha";
-    $dbname = "onlineJudge";
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-    if(isset($_POST['submit'])){
-    	$query = "SELECT count(*) as number FROM submissions";
-    	$result = mysqli_query($conn,$query);
-    	$data = mysqli_fetch_assoc($result);
-    	$sub_id = $_SESSION["user"].$data["number"];//Generate sub_id
-    	
-    	$problemID = $_POST['problemID']; //Generate problem ID
-    	$in_id = $problemID; //Generate in_id
-    	$exout_id = $problemID; //Generate exout_out
-
-    	$query = "SELECT * FROM problems WHERE PID='{$problemID}'";
-    	$result = mysqli_query($conn,$query);
-    	$data = mysqli_fetch_assoc($result);
-    	$timeout = $data["timeout"]; //Generate timeout
-
-    	$submission_file = fopen("flask/submissions/{$sub_id}.py","w");
-    	$sub_code = $_POST["submittedCode"];
-    	fwrite($submission_file,$sub_code);
-    	fclose($submission_file);
-
-        //Calling the API
-		$ch = curl_init("127.0.0.1:5000/judge/"."{$sub_id}/"."{$in_id}/"."{$exout_id}/"."{$timeout}");
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-     	$output = curl_exec($ch);
-     	curl_close($ch);
-
-     	$query = "INSERT into submissions VALUES ('{$sub_id}','{$problemID}','{$_SESSION["user"]}','{$output}')";
-     	mysqli_query($conn,$query);
-	}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Sumbit</title>
+	<title>Thor &middot; Sumbit Code</title>
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/loginregister.css">
+    <link rel="stylesheet" href="css/submitCode.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="ace/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <nav>
@@ -70,21 +36,63 @@
     </nav>
     <section class="section1">
         <h1>Submit Code</h1>
-    	<form action="#">
-    		Problem ID<br><input type="text" name="problemID" autocomplete="off"><br>
-    		Your code<br>
-            <textarea name="submittedCode" cols="30" rows="10" autocomplete="off"></textarea><br>
-    		<input type="submit" name="submit" required>
-    	</form>
+
+        <form action="#" class="inputs-container">
+            <div class="problemID">
+                <label>Problem ID - </label><input type="text" name="problemID" autocomplete="off">
+            </div>
+            <div class="language">
+                <label>Language - </label>
+                <select name="language">
+                    <option value="cpp">C++</option>
+                    <option value="py">Python</option>
+                    <option value="c">C</option>
+                    <option value="java">Java</option>
+                </select>
+            </div>
+            <div class="ace-code">
+                <label>Your code</label><br>
+                <div id="editor"></div>
+                <textarea id="code" name="submittedCode"></textarea><br>
+            </div>
+            <div class="submitButton">
+                <input type="submit" name="submit" required>
+            </div>
+        </form>
+        <p class="result"></p>
     </section>
-    <?php //echo "The code received a verdict of : ".$output; ?>
     <script>
+
+        //Configure the Code Editor
+        $("#code").css("display","none");//hide textarea
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/xcode");
+        editor.getSession().setMode("ace/mode/c_cpp");
+
+        //Handle language change in code editor
+        $('form select').on('change', function(){
+            var lang = $(this).val();
+            //console.log(newMode);
+            if((lang==="cpp")||(lang==="c")){
+                editor.getSession().setMode("ace/mode/c_cpp");
+            }
+            else if(lang==="py"){
+                editor.getSession().setMode("ace/mode/python");
+            }
+            else if(lang==="java"){
+                editor.getSession().setMode("ace/mode/java");
+            }
+        });
+
+        //Handle AJAX Call
         $("form").on("submit",function(e){
             e.preventDefault();
+            $("#code").val(editor.getSession().getValue());//enter code editor code to text area to POST to API
             var data = $(this).serialize();
+            console.log(data);
             $.post("result.php",data,function(response){
                 if(response){
-                    console.log(response);
+                    $("p.result").html("Verdict: Something.");
                 }
             });
         });
