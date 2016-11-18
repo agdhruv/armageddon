@@ -22,19 +22,18 @@
 		$data = mysqli_fetch_assoc($result);
 		$timeout = $data["timeout"]; //Generate timeout
 
-		$submission_file = fopen("flask/submissions/{$sub_id}.py","w");
+		$submission_file = fopen("flask/submissions/{$sub_id}".".".$lang_code,"w");
 		$sub_code = $_POST["submittedCode"];
 		fwrite($submission_file,$sub_code);
 		fclose($submission_file);
 
 	    //Calling the API
-		$ch = curl_init("127.0.0.1:5000/judge/"."{$sub_id}/"."{$in_id}/"."{$exout_id}/"."{$timeout}"."{$lang_code}");
+		$ch = curl_init("127.0.0.1:5000/judge/"."{$sub_id}/"."{$in_id}/"."{$exout_id}/"."{$timeout}/"."{$lang_code}");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	 	$output = curl_exec($ch);
 	 	curl_close($ch);
 
 	 	$query = "INSERT into submissions VALUES ('{$sub_id}','{$problemID}','{$_SESSION["user"]}','{$output}','{$lang_code}')";
-	 	//$output = "haha";
 	 	echo $output;
     }
     else{
