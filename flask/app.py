@@ -1,4 +1,4 @@
-#!/Applications/MAMP/htdocs/armaggedon/flask/bin/python
+#!bin/python
 from flask import Flask
 import os
 import filecmp
