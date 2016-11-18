@@ -89,6 +89,7 @@
             e.preventDefault();
             $("#code").val(editor.getSession().getValue());//enter code editor code to text area to POST to API
             var data = $(this).serialize();
+            data += "&submit=yes";
             console.log(data);
             $.post("result.php",data,function(response){
                 if(response){
