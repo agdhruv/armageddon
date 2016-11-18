@@ -93,7 +93,7 @@
             console.log(data);
             $.post("result.php",data,function(response){
                 if(response){
-                    $("p.result").html("Verdict: Something.");
+                    $("p.result").html("Verdict: "+response);
                 }
             });
         });
