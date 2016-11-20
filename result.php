@@ -37,7 +37,9 @@
 	 	echo $output;
     }
     else{
-    	echo "Why do you want to access this page? All you will get here is an error. Error 403.";
+		header('HTTP/1.0 403 Forbidden');
+		exit();
+    	//echo "Why do you want to access this page? All you will get here is an error. Error 403.";
     }
  	mysqli_query($conn,$query);
 ?>
