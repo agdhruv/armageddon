@@ -48,5 +48,24 @@ def index(submission_id, input_id, exoutput_id,timeout,language_id):
             return "AC"
         else:
             return "WA"
+    elif language_id=="java":
+        os.system("mv " + submission_path + " submissions/Main.java")
+        r = os.system("timeout " + str(timeout) + " javac submissions/Main.java")
+        k = "ERROR JAVA-511: Please report this issue"
+        if r!=0:
+            k = "CE"
+        else:
+            r = os.system("timeout " + str(timeout) + " java -cp submissions/ Main < " + input_path + " > " + output_path)
+            if r==31744:
+                k = "TLE"
+            elif r!=0:
+                k = "RTE"
+            elif filecmp.cmp(output_path,exoutput_path):
+                k = "AC"
+            else:
+                k = "WA"
+            r = os.system("mv submissions/Main.java " + submission_path)
+            os.system("rm submissions/Main.class")
+        return k
 if __name__ =='__main__':
     app.run(debug=True)
