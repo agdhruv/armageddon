@@ -93,7 +93,7 @@
             }
             else if(lang==="java"){
                 editor.getSession().setMode("ace/mode/java");
-                content = "# your code goes here";
+                content = "/* package whatever; //don't place package name! */\n\nimport java.util.*;\nimport java.lang.*;\nimport java.io.*;\n\n/* Name of the class has to be \"Main\" only, if the class is public. */\nclass Ideone\n{   public static void main (String[] args) throws java.lang.Exception\n    {\n     // your code goes here\n    }\n}";
                 editor.setValue(content,1);
             }
         });
