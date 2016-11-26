@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Thor &middot; Sumbit Code</title>
+	<title>Thor &middot; Submit Code</title>
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/submitCode.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -52,7 +52,7 @@
             </div>
             <div class="ace-code">
                 <label>Your code</label><br>
-                <div id="editor"></div>
+                <div id="editor">#include</div>
                 <textarea id="code" name="submittedCode"></textarea><br>
             </div>
             <div class="submitButton">
@@ -69,18 +69,32 @@
         editor.setTheme("ace/theme/xcode");
         editor.getSession().setMode("ace/mode/c_cpp");
 
+        //Handle default code in code editor
+        var content = "#include <iostream>\nusing namespace std;\n\nint main() {\n    //your code goes here\n   return 0;\n}";
+        editor.setValue(content,1);
+
         //Handle language change in code editor
         $('form select').on('change', function(){
             var lang = $(this).val();
-            //console.log(newMode);
-            if((lang==="cpp")||(lang==="c")){
+            if(lang==="cpp"){
                 editor.getSession().setMode("ace/mode/c_cpp");
+                content = "#include <iostream>\nusing namespace std;\n\nint main() {\n    //your code goes here\n   return 0;\n}";
+                editor.setValue(content,1);
+            }
+            else if(lang==="c"){
+                editor.getSession().setMode("ace/mode/c_cpp");
+                content = "#include <stdio.h>\n\nint main(void) {\n    //your code goes here\n   return 0;\n}";
+                editor.setValue(content,1);
             }
             else if(lang==="py"){
                 editor.getSession().setMode("ace/mode/python");
+                content = "# your code goes here";
+                editor.setValue(content,1);
             }
             else if(lang==="java"){
                 editor.getSession().setMode("ace/mode/java");
+                content = "# your code goes here";
+                editor.setValue(content,1);
             }
         });
 
