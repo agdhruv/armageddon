@@ -23,7 +23,7 @@ def index(submission_id, input_id, exoutput_id,timeout,language_id):
         else:
             return "WA"              
     elif language_id=="cpp":
-        r = os.system("timeout " + str(timeout) + " g++ -o " + "binaries/" + submission_id + " " + submission_path)
+        r = os.system("timeout " + str(timeout) + " g++ -o " + "binaries/" + submission_id + " " + submission_path + " -std=c++14 -DONLINE_JUDGE")
         if r!=0:
             return "CE"
         r = os.system("timeout " + str(timeout) + " ./" + "binaries/" + submission_id + " < " + input_path + " > " + output_path)
