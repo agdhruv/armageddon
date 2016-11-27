@@ -8,11 +8,13 @@ Output :
 
 Do the following t times:
 	First output a number k
-	Then output k numbers seperated by spaces, the prime factors of that test case, such that the multiple of all of these numbers is equal to the answer. These numbers should be in ascending order.
+	Then output k numbers seperated by spaces, the prime factors of that test case, such that the product of all of these numbers is equal to the answer. These numbers should be in ascending order.
 
 In total, 2t lines should be present.
 
 Constraints: 1 <= t <= 1000 | 1 <= n <= 10^6
+Time Limit : 1 second
+Memory Limit: FUCK YOU I DON'T KNOW HOW TO DO THIS
 
 Sample Input :
 
