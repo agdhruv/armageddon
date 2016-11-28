@@ -21,7 +21,7 @@
 		<h1 class="title">
 			Thor
 		</h1>
-	<div class="links">
+		<div class="links">
 			<a href="index.php">Rank List</a>
 			<a href="problems.php">Problems</a>
 			<?php 

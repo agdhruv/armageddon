@@ -22,7 +22,7 @@
 		$data = mysqli_fetch_assoc($result);
 		$timeout = $data["timeout"]; //Generate timeout
 
-		$submission_file = fopen("flask/submissions/{$sub_id}".".".$lang_code,"w");
+		$submission_file = fopen("../flask/submissions/{$sub_id}".".".$lang_code,"w");
 		$sub_code = $_POST["submittedCode"];
 		fwrite($submission_file,$sub_code);
 		fclose($submission_file);

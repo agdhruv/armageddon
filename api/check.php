@@ -35,30 +35,30 @@
         $password = isset($_POST['password'])?trim($_POST['password']):"";
         $found_admin = attempt_login($username,$password,$conn);
         if(!$found_admin){
-            header("Location: login.php?success=false");
+            header("Location: ../login.php?success=false");
             exit();
         }
         else{
             $_SESSION['user'] = $_POST['userID'];
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit();
         }
     }
     else if(isset($_POST['submitregister'])){
         if(empty(trim($_POST["name"]))){
-            header("Location: register.php?success=incomplete");
+            header("Location: ../register.php?success=incomplete");
             exit();
         }
         else if(empty(trim($_POST["userID"]))){
-            header("Location: register.php?success=incomplete");
+            header("Location: ../register.php?success=incomplete");
             exit();
         }
         else if(empty(trim($_POST["userPassword"]))){
-            header("Location: register.php?success=incomplete");
+            header("Location: ../register.php?success=incomplete");
             exit();
         }
         else if(usernameExists($_POST["userID"])){
-            header("Location: register.php?success=exists");
+            header("Location: ../register.php?success=exists");
             exit();
         }
         else{
@@ -67,7 +67,7 @@
             $name = isset($_POST["name"])?trim(mysqli_real_escape_string($conn,$_POST["name"])):"";
             $query = "INSERT into users VALUES ('{$UID}','{$password}','{$name}','0','0.0')";
             mysqli_query($conn,$query);
-            header("Location: register.php?success=true");
+            header("Location: ../register.php?success=true");
             exit();
         }
     }
