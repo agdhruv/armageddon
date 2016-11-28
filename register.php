@@ -33,8 +33,20 @@
         <h1 class="title">
             Thor
         </h1>
-        <div class="links">
-            <a href="login.php">Login</a>
+       <div class="links">
+            <a href="index.php">Rank List</a>
+            <a href="problems.php">Problems</a>
+            <?php 
+                if(isset($_SESSION["user"])){
+                    echo '<a href="submit-code.php"><span>Submit Code</span></a>';
+                    echo '<a href="javascript:void(0);"><span>'.$_SESSION["user"].'</span></a>';
+                    echo '<a href="logout.php"><span>Logout</span></a>';
+                }
+                else{
+                    echo '<a href="login.php"><span>Login</span></a>';
+                    echo '<a href="register.php"><span>Register</span></a>';
+                }
+            ?>
         </div>
     </nav>
     <section class="section1">
