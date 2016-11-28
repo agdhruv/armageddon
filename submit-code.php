@@ -105,7 +105,7 @@
             var data = $(this).serialize();
             data += "&submit=yes";
             console.log(data);
-            $.post("result.php",data,function(response){
+            $.post("api/result.php",data,function(response){
                 console.log(response);
                 if(response){
                     $("p.result").html("Verdict: "+response);

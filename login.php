@@ -27,7 +27,7 @@
 	</nav>
 	<section class="section1">
 		<h1>Login</h1>
-		<form method="POST" action="check.php">
+		<form method="POST" action="api/check.php">
 			Username<br><input type="text" placeholder="Username" name="userID" autocomplete="off"><br><br>
 			Password<br><input type="password" name="password" autocomplete="off" placeholder="Password"><br>
 			<input type="submit" name="submitlogin">

@@ -39,7 +39,7 @@
     </nav>
     <section class="section1">
         <h1>Register</h1>
-    	<form method="POST" action="check.php">
+    	<form method="POST" action="api/check.php">
     		Name<br><input type="text" placeholder="Name" name="name" autocomplete="off"><br>
     		User ID<br><input type="text" placeholder="Unique Username" name="userID" autocomplete="off"><br>
     		Password<br><input id="password" type="password" name="userPassword" autocomplete="off" placeholder="Password"><span style="font-size: 0.8em;display: block;">Show Password <input type="checkbox" id="showPassword"></span><br>
