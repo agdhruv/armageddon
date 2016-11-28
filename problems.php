@@ -37,31 +37,23 @@
 		</div>
 	</nav>
 	<section class="section1">
-		<h1>Current Rank List</h1>
+		<h1>List of Problems</h1>
 		<table class="rankTable">
 			<tr>
 				<th>Rank</th>
-				<th>Name</th>
-				<th>Username</th>
-				<th>Score</th>
-				<th>Accuracy</th>
+				<th>Problem ID</th>
+				<th>Time Limit</th>
+				<th>Points</th>
 			</tr>
 			<?php
-				$query = "SELECT * FROM users ORDER BY score DESC";
+				$query = "SELECT * FROM problems";
 	    		$result = mysqli_query($conn,$query);
-	    		$rank = 0;
+	    		$rank = 1;
 				while($data = mysqli_fetch_assoc($result)){
-					if(isset($_SESSION["user"])&&($data["UID"]==$_SESSION["user"])){
-						echo '<tr class="loggedIn">';
-					}
-					else{
-						echo '<tr class="notLoggedIn">';
-					}
 					echo "	<td>".$rank."</td>";
-					echo "	<td>".$data["name"]."</td>";
-					echo "	<td>".$data["UID"]."</td>";
-					echo "	<td>".$data["score"]."</td>";
-					echo "	<td>".$data["accuracy"]."</td>";
+					echo "	<td><a href=flask/statements/".$data["PID"].".txt>".$data["PID"]."</a></td>";
+					echo "	<td>".$data["timeout"]."</td>";
+					echo "	<td>".$data["points"]."</td>";
 					echo "</tr>";
 					$rank++;
 				}
