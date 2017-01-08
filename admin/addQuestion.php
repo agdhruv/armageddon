@@ -6,28 +6,32 @@
         header("Location: login.php"); 
         exit;
     }
-    else if($_SESSION["user"]!='agdhruv'){
-    	header("Location: login.php"); 
+    else if($_SESSION["user"]!='agdhruv'){ //ENTER USERNAMES OF THE ADMINS HERE TO ALLOW ACCESS
+    	header("Location: ../login.php"); 
         exit;
     }
+
+    //Establish connection with the DB server
 	$dbhost = "localhost";
     $dbuser = "agdhruv";
     $dbpass = "haha";
     $dbname = "onlineJudge";
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
+    //Start Handling Entered data
     if(isset($_POST['submit'])){
     	$question_code = isset($_POST["questionCode"])?mysqli_real_escape_string($conn,$_POST["questionCode"]):"";
     	$question_title = isset($_POST["questionTitle"])?mysqli_real_escape_string($conn,$_POST["questionTitle"]):"";
     	$question_body = isset($_POST["questionBody"])?mysqli_real_escape_string($conn,$_POST["questionBody"]):"";
-
     }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Sumbit Code</title>
+	<title></title>
 	<link rel="stylesheet" href="css/common.css">
 </head>
 <body>
@@ -44,7 +48,7 @@
 		Sample Output 3: <textarea name="sampleOutput3" cols="30" rows="10"></textarea><br>
 		<input type="submit">
 	</form>
-	<a href="logout.php">Logout</a>
+	<a href="../logout.php">Logout</a>
 </body>
 <?php
 	mysqli_close($conn);

@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Thor &middot; Ashoka's Online Judge</title>
+	<title>Thor &middot; Problem Statements</title>
 	<link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="css/index.css">
 </head>

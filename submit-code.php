@@ -106,17 +106,18 @@
         //Handle AJAX Call
         $("form").on("submit",function(e){
             e.preventDefault();
+            $("p.result").html("Checking...");
             $("#code").val(editor.getSession().getValue());//enter code editor code to text area to POST to API
             var data = $(this).serialize();
             data += "&submit=yes";
-            console.log(data);
+            //console.log(data);
             $.post("api/result.php",data,function(response){
-                console.log(response);
+                //console.log(response);
                 if(response){
                     $("p.result").html("Verdict: "+response);
                 }
                 else{
-                    $("p.result").html("Verdict: Something");
+                    $("p.result").html("Some error, try again in some time.");
                 }
             });
         });
