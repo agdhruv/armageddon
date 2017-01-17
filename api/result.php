@@ -13,8 +13,9 @@
 		$sub_id = $_SESSION["user"].$data["number"];//Generate sub_id
 		
 		$problemID = mysqli_real_escape_string($conn,trim($_POST["problemID"]));//Generate problem ID
-		$in_id = $problemID; //Generate in_id
-		$exout_id = $problemID; //Generate exout_out
+//		$in_id = $problemID; //Generate in_id
+//		$exout_id = $problemID; //Generate exout_out // Why was in_id in snake case but problemID in camelcase anyway?
+// Why have two for the same id? Redundant information. Changed it so that $problemID alone is enough
 		$lang_code = $_POST['language'];//Generate Input Language
 
 		$query = "SELECT * FROM problems WHERE PID='{$problemID}'";
@@ -22,13 +23,13 @@
 		$data = mysqli_fetch_assoc($result);
 		$timeout = $data["timeout"]; //Generate timeout
 
-		$submission_file = fopen("../flask/submissions/{$sub_id}".".".$lang_code,"w");
+		$submission_file = fopen("../submissions/{$sub_id}".".".$lang_code,"w");
 		$sub_code = $_POST["submittedCode"];
 		fwrite($submission_file,$sub_code);
 		fclose($submission_file);
 
 	    //Calling the API
-		$ch = curl_init("127.0.0.1:5000/judge/"."{$sub_id}/"."{$in_id}/"."{$exout_id}/"."{$timeout}/"."{$lang_code}");
+		$ch = curl_init("127.0.0.1:5000/judge/"."{$sub_id}/"."{$problemID}/"."{$timeout}/"."{$lang_code}");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	 	$output = curl_exec($ch);
 	 	curl_close($ch);

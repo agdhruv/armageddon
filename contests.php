@@ -21,6 +21,7 @@
 			Thor
 		</h1>
 		<div class="links">
+			<a href="index.php">Rank List</a>
 			<a href="problems.php">Problems</a>
 			<?php 
 				if(isset($_SESSION["user"])){
